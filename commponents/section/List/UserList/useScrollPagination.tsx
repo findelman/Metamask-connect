@@ -1,5 +1,5 @@
 import { UserContext } from "@/context/UserProvider";
-import { useRef, useState, useCallback, useEffect, useContext } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
 import useSWR from "swr";
 
 export const useScrollPagination = () => {
@@ -45,14 +45,12 @@ export const useScrollPagination = () => {
   }, [handleScroll]);
 
   const handleItemCloseClick = (id: string) => {
-    console.log("123");
     mutate(
       `https://new-backend.unistory.app/api/data?page=${page}&perPage=20`,
       {
         populateCache: (updatedList: any, list: any) => {
           const newList = items.filter((item: any) => item.id !== id);
-          setItems([userInfo, ...newList]);
-        //   return { userInfo, ...list, items: newList };
+          setItems([...newList]);
         },
         revalidate: false,
       }

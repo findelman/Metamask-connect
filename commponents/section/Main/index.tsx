@@ -32,8 +32,8 @@ const TitleBox = styled.div`
     pointer-events: none;
     span {
       -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: white;
-    color: transparent;
+      -webkit-text-stroke-color: white;
+      color: transparent;
     }
   }
 `;
