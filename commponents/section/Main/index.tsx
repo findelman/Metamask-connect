@@ -30,6 +30,11 @@ const TitleBox = styled.div`
     position: relative;
     z-index: 5;
     pointer-events: none;
+    span {
+      -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: white;
+    color: transparent;
+    }
   }
 `;
 
@@ -88,7 +93,7 @@ export const MainContainer = () => {
         <JC_SB>
           <TitleBox>
             <h1>
-              Explore Your own planet<br></br> In our New metaverse
+              Explore Your own planet<br></br> In <span>our New</span> metaverse
             </h1>
             <CircleWrapper ref={circleView}>
               <CircleOverlaySvg />
