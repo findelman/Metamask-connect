@@ -50,9 +50,9 @@ export const useScrollPagination = () => {
       `https://new-backend.unistory.app/api/data?page=${page}&perPage=20`,
       {
         populateCache: (updatedList: any, list: any) => {
-          const newList = list.items.filter((item: any) => item.id !== id);
+          const newList = items.filter((item: any) => item.id !== id);
           setItems([userInfo, ...newList]);
-          return { userInfo, ...list, items: newList };
+        //   return { userInfo, ...list, items: newList };
         },
         revalidate: false,
       }
