@@ -7,6 +7,7 @@ export const useScrollPagination = () => {
   const { userInfo } = useContext(UserContext);
   const [page, setPage] = useState(0);
   const [items, setItems] = useState<any[]>([]);
+  const [scrollTimer, setScrollTimer] = useState<number | undefined>();
   const fetcher = (...args: [RequestInfo, RequestInit?]) =>
     fetch(...args).then((res) => res.json());
 
@@ -16,18 +17,27 @@ export const useScrollPagination = () => {
     {
       revalidateOnFocus: false,
       onSuccess: (data) => {
-        const itemsWithUserInfo = [userInfo, ...data.items];
+        const itemsWithUserInfo =
+          items.length === 0 ? [userInfo, ...data.items] : [...data.items];
+        console.log(data, "ALO", itemsWithUserInfo);
         setItems((prevItems) => [...prevItems, ...itemsWithUserInfo]);
       },
     }
   );
 
-  const handleScroll = useCallback((e: any) => {
+  const handleScroll = (e: any) => {
     const { scrollTop, clientHeight, scrollHeight } = e.target;
     if (scrollTop + clientHeight >= scrollHeight - 20) {
-      setPage((prevPage) => prevPage + 1);
+      if (scrollTimer) {
+        clearTimeout(scrollTimer);
+      }
+      setScrollTimer(
+        window.setTimeout(() => {
+          setPage((prevPage) => prevPage + 1);
+        }, 300)
+      );
     }
-  }, []);
+  };
 
   useEffect(() => {
     tableList.current?.addEventListener("scroll", handleScroll);

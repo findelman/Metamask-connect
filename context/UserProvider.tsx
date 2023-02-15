@@ -7,7 +7,6 @@ import React, {
 
 export const UserContext = createContext({
   isLoggedIn: false,
-  metaMaskConnect: false,
   showPopUp: true,
   userInfo: {
     address: "",
@@ -19,12 +18,10 @@ export const UserContext = createContext({
   >,
   setshowPopUp: (() => {}) as Dispatch<SetStateAction<boolean>>,
   setIsLoggedIn: (() => {}) as Dispatch<SetStateAction<boolean>>,
-  setmetaMaskConnect: (() => {}) as Dispatch<SetStateAction<boolean>>,
 });
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [metaMaskConnect, setmetaMaskConnect] = useState(false);
   const [showPopUp, setshowPopUp] = useState<boolean>(true);
   const [userInfo, setuserInfo] = useState({
     address: "",
@@ -36,8 +33,6 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
       value={{
         isLoggedIn,
         setIsLoggedIn,
-        metaMaskConnect,
-        setmetaMaskConnect,
         showPopUp,
         setshowPopUp,
         userInfo,
