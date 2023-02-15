@@ -24,9 +24,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Wrapper>
+        <PopUp />
         <Container>
-          {" "}
-          <PopUp />
           <Header />
           <MainContainer />
           <ListContainer />
