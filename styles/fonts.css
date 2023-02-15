@@ -1,1 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+@font-face {
+  font-family: "Avenir-Next-Cyr-Medium";
+  src: url("../assets/fonts/Avenir-Next-Cyr-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
