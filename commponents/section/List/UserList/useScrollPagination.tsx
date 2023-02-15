@@ -41,9 +41,8 @@ export const useScrollPagination = () => {
       {
         populateCache: (updatedList: any, list: any) => {
           const newList = list.items.filter((item: any) => item.id !== id);
-          console.log(newList, list);
-          setItems(newList);
-          return { ...list, items: newList };
+          setItems([userInfo, ...newList]);
+          return { userInfo, ...list, items: newList };
         },
         revalidate: false,
       }

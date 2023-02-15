@@ -8,7 +8,12 @@ import { PopUp } from "@/commponents/popup/PopUp";
 
 const Wrapper = styled.div`
   background: #171719;
-  padding: 0px 3%;
+  /* padding: 0px 3%; */
+`;
+
+const Container = styled.div`
+  max-width: 1312px;
+  margin: 0 auto;
 `;
 
 export default function Home() {
@@ -19,10 +24,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Wrapper>
-        <PopUp />
-        <Header />
-        <MainContainer />
-        <ListContainer />
+        <Container>
+          {" "}
+          <PopUp />
+          <Header />
+          <MainContainer />
+          <ListContainer />
+        </Container>
       </Wrapper>
     </>
   );
